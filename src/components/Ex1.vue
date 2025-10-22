@@ -2,6 +2,27 @@
     export default { 
         // Add Code Here to complete the task
         // Note: DO NOT USE "eval()". In security, "eval" is considered "evil"!!!
+        data() {
+    return {
+      x: 0,
+      y: 0,
+      selectedOp: '+',
+      operators: ['+', '-', '*', '/', '%']
+    }
+  },
+  computed: {
+    result() {
+      switch (this.selectedOp) {
+        case '+': return this.x + this.y
+        case '-': return this.x - this.y
+        case '*': return this.x * this.y
+        case '/': return this.y !== 0 ? this.x / this.y : '∞'
+        case '%': return this.y !== 0 ? this.x % this.y : 'NaN'
+        default: return 'Invalid'
+      }
+    }
+  }
+
     }
 </script>
 
